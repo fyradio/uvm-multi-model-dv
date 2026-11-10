@@ -1,0 +1,36 @@
+{
+  "_說明": "唯一依據。AI 只能實作這裡列出的 REQ；新增或修改只能由人（或主模型裁決後）改這個檔。",
+  "project": "my_block",
+  "spec_version": "v1.0",
+  "frozen_files": ["tb/tb_contract_pkg.sv", "tb/my_if.sv"],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "spec_ref": "spec 3.1",
+      "desc": "寫入後讀回同一位址，資料必須相同",
+      "check": "scoreboard",
+      "covergroups": ["cg_rw"],
+      "tests": ["rw_basic_test", "rw_random_test"],
+      "owner": "B"
+    },
+    {
+      "id": "REQ-002",
+      "spec_ref": "spec 3.4",
+      "desc": "FIFO 滿時 ready 必須在下一個 cycle 拉低",
+      "check": "sva",
+      "covergroups": ["cg_fifo_level"],
+      "tests": ["fifo_full_test"],
+      "owner": "D"
+    }
+  ],
+  "coverage_goal": { "functional_pct": 100, "code_line_pct": 95 },
+  "open_questions": [
+    {
+      "id": "Q-001",
+      "raised_by": "B",
+      "question": "spec 3.1 沒寫 reset 期間寫入要不要忽略",
+      "status": "open",
+      "decision": ""
+    }
+  ]
+}

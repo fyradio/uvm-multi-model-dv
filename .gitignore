@@ -1,0 +1,11 @@
+simv*
+csrc/
+*.vdb/
+urgReport/
+logs/
+ucli.key
+vc_hdrsrc.h
+DVEfiles/
+*.fsdb
+gate_report.json
+__pycache__/
